@@ -1,8 +1,8 @@
 from flask import Flask
 
-from .models import db
-from . import views
-from .views import page_not_found
+from .models.models import db
+from .views import views
+from .views.views import page_not_found
 
 
 def create_app():
