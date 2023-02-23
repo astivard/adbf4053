@@ -1,6 +1,6 @@
 from flask import Flask
 
-from src.models import db
+from .models import db
 from . import views
 from .views import page_not_found
 

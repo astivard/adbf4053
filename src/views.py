@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template, flash, redirect, url_for
 from flask_restful import Api, Resource
 
-from src.utils import add_form_data_to_db, is_form_valid, get_data_from_all_forms
+from .utils import add_form_data_to_db, is_form_valid, get_data_from_all_forms
 
 bp = Blueprint('form', __name__)
 api = Api(bp)
