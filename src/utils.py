@@ -1,6 +1,6 @@
 from werkzeug.datastructures import ImmutableMultiDict
 
-from src.models.models import db, Data
+from src.models import db, Data
 
 
 def add_form_data_to_db(data: ImmutableMultiDict) -> None:
