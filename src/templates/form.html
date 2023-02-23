@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script defer src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div id="div" class="container px-4 px-lg-5">
+    <h2>Форма с динамическим добавлением инпутов</h2>
+    {% for msg in get_flashed_messages() %}
+    <div><b>{{ msg }}</b></div>
+    {% endfor %}
+    <form id="form" action="/form" method="post">
+    </form>
+    <button id="add" type="button" class="btn btn-primary">Добавить</button>
+    <button id="remove" type="button" class="btn btn-primary">Удалить</button>
+    <button form="form" type="submit" class="btn btn-primary">Отправить</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function()
+  {
+    $('#add').on('click', function()
+    {
+      let input_id = $('#form input').length;
+      let label_text = `Name ${input_id}`;
+      if (input_id == 0) $("#remove").attr("disabled", "disabled")
+      else $("#remove").removeAttr("disabled");
+      $('#form').append('<label class="form-label" id="' + input_id + '" for="' + input_id + '"></label>');
+      $('#form').append('<input required class="form-control input-mini" id="' + input_id + '" name="' + label_text + '"><br id="' + input_id + '">');
+      $('#' + input_id).text(label_text);
+    });
+    $('#add').trigger('click');
+
+    $('#remove').on('click', function()
+    {
+      let input_id = $('#form input').length - 1;
+      if (input_id <= 1) $("#remove").attr("disabled", "disabled");
+      if (input_id > 0) for(let i = 0; i < 3; ++i) $('#' + input_id).remove();
+    });
+  });
+</script>
+
+</body>
+</html>
