@@ -28,7 +28,7 @@ ufw enable
 ```
 sudo apt update
 ```
-2. Установить NGINX
+2. Установить NGINX:
 ```
 sudo apt install nginx
 ```
@@ -61,7 +61,7 @@ pip install wheel gunicorn psycopg2
 sudo su - postgres
 psql
 ```
-6. Добавить пароль суперпользователя PosgreSQL:
+6. Добавить пароль суперпользователя PostgreSQL:
 ```
 alter user postgres password 'root';
 ```
@@ -69,16 +69,16 @@ alter user postgres password 'root';
 ```
 create database inputsdata;
 ```
-8. Выйти из программной оболочки (Ctrl + D)
+8. Выйти из программной оболочки (Ctrl + D):
 ```
 exit
 exit
 ```
-9. Склонировать репозиторий с приложением:
+9. Склонировать репозиторий с проектом:
 ```
 git clone https://github.com/astivard/adbf4053.git
 ```
-10. Перейти в коревую папку с проектом:
+10. Перейти в родительскую папку проекта:
 ```
 cd adbf4053/
 ```
